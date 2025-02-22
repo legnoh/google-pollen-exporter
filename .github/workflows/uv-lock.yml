@@ -21,7 +21,7 @@ jobs:
           enable-cache: true
 
       - name: Update lockfile
-        run: uv lock
+        run: uv add -r requirements.txt
 
       - name: Get GitHub App Token
         uses: actions/create-github-app-token@v1
@@ -44,7 +44,7 @@ jobs:
 
       - name: git push
         run: |
-          git add uv.lock
+          git add pyproject.toml uv.lock
           git commit -m "Update uv.lock"
           git remote set-url origin https://x-access-token:${{ steps.github-app.outputs.token }}@github.com/${{ github.repository }}.git
           git push origin HEAD:${{ github.head_ref }}
