@@ -6,7 +6,7 @@ from prometheus_client import CollectorRegistry, start_http_server
 import modules.prometheus as prom
 
 GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
-COORDINATES = os.environ["COODINATES"]
+COORDINATES = os.environ["COORDINATES"]
 LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", "en")
 INTERVAL = int(os.environ.get("INTERVAL", 60 * 60 * 6)) # 6 hours
 HTTP_PORT = os.environ.get('PORT', 8000)
