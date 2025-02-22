@@ -1,0 +1,10 @@
+.github
+.vscode
+example
+modules/__pycache__
+.dockerignore
+.env
+.venv
+.git
+.gitignore
+Dockerfile

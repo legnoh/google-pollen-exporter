@@ -1,0 +1,17 @@
+categories:
+- name: forecast
+  prefix: google_pollen_
+  labels: [lat, long]
+  metrics:
+  - name: type_upi
+    desc: index of pollenTypeInfo (0~5)
+    type: gauge
+    unit: upi
+    labels: [lat, long, code, display_name]
+    iterator: pollenTypeInfo
+  - name: plant_upi
+    desc: index of plantInfo (0~5)
+    type: gauge
+    unit: upi
+    labels: [lat, long, code, display_name]
+    iterator: plantInfo

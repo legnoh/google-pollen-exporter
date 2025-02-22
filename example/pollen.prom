@@ -1,0 +1,6 @@
+# HELP google_pollen_type_upi index of pollenTypeInfo (0~5)
+# TYPE google_pollen_type_upi gauge
+google_pollen_type_upi{code="TREE",display_name="木",lat="35.685386237848284",long="139.7533366243556"} 1.0
+# HELP google_pollen_plant_upi index of plantInfo (0~5)
+# TYPE google_pollen_plant_upi gauge
+google_pollen_plant_upi{code="JAPANESE_CEDAR",display_name="スギ",lat="35.685386237848284",long="139.7533366243556"} 1.0
