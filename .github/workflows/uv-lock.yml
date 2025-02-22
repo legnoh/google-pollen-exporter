@@ -1,3 +1,5 @@
+# This workflow is automatically distributed from the following repository:
+# https://github.com/legnoh/github-repo-configs/blob/main/modules/repo/templates/.github/workflows/uv-lock.yml.tftpl
 name: UV lock
 
 on:
