@@ -6,7 +6,7 @@ from prometheus_client import CollectorRegistry, start_http_server
 import modules.prometheus as prom
 
 GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
-COODINATES = os.environ["COODINATES"]
+COORDINATES = os.environ["COODINATES"]
 LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", "en")
 INTERVAL = int(os.environ.get("INTERVAL", 60 * 60 * 6)) # 6 hours
 HTTP_PORT = os.environ.get('PORT', 8000)
@@ -23,11 +23,11 @@ if __name__ == "__main__":
     registry = CollectorRegistry()
     start_http_server(int(HTTP_PORT), registry=registry)
 
-    if len(COODINATES.split(",")) != 2:
+    if len(COORDINATES.split(",")) != 2:
         logging.error("Invalid coordinates.")
         sys.exit(1)
-    lat = COODINATES.split(",")[0].strip()
-    long = COODINATES.split(",")[1].strip()
+    lat = COORDINATES.split(",")[0].strip()
+    long = COORDINATES.split(",")[1].strip()
 
     pollen = Pollen(apiKey=GOOGLE_API_KEY)
     root_metrics = {}

@@ -23,7 +23,7 @@ The simplest way to use it is with Docker.
 ```
 docker run -p 8000:8000 \
      -e GOOGLE_API_KEY="yourapikeyhere" \
-     -e COODINATES="35.685385800250806, 139.75336965608045" \
+     -e COORDINATES="35.685385800250806, 139.75336965608045" \
      -e LANGUAGE_CODE="ja" \
     legnoh/google-pollen-exporter
 ```
@@ -40,7 +40,7 @@ uv sync
 # prepare .env file for your apps
 cat << EOS > .env
 GOOGLE_API_KEY="yourapikeyhere"
-COODINATES="35.685385800250806, 139.75336965608045"
+COORDINATES="35.685385800250806, 139.75336965608045"
 LANGUAGE_CODE="ja"
 EOS
 
