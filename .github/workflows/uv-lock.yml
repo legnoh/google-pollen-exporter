@@ -45,6 +45,6 @@ jobs:
       - name: git push
         run: |
           git add pyproject.toml uv.lock
-          git commit -m "Update uv.lock"
+          git commit -m "Update pyproject.toml and uv.lock"
           git remote set-url origin https://x-access-token:${{ steps.github-app.outputs.token }}@github.com/${{ github.repository }}.git
           git push origin HEAD:${{ github.head_ref }}
