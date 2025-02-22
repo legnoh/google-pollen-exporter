@@ -53,16 +53,15 @@ if __name__ == "__main__":
                 extractor = attrgetter(iterator)
                 infos:list[PollenTypeInfo|PlantInfo] = extractor(latest_metrics)
                 for info in infos:
-                    if not info.inSeason:
-                        logging.info(f"{category.prefix}{m.name}: {info.displayName} is not in season.")
+                    if info.indexInfo == None:
+                        logging.info(f"{category.prefix}{m.name}: {info.displayName} - indexInfo is empty.")
                         continue
-                    if info.indexInfo != None:
-                        logging.debug(f"{category.prefix}{m.name}: {info.indexInfo.value}")
-                        if not m.name in root_metrics[category.name]:
-                            root_metrics[category.name][m.name] = prom.create_metric_instance(m, registry, category.prefix)
-                        labels["code"] = info.code
-                        labels["displayName"] = info.displayName
-                        prom.set_metrics(root_metrics[category.name][m.name], labels.values(), info.indexInfo.value)
+                    logging.debug(f"{category.prefix}{m.name}: {info.indexInfo.value}")
+                    if not m.name in root_metrics[category.name]:
+                        root_metrics[category.name][m.name] = prom.create_metric_instance(m, registry, category.prefix)
+                    labels["code"] = info.code
+                    labels["displayName"] = info.displayName
+                    prom.set_metrics(root_metrics[category.name][m.name], labels.values(), info.indexInfo.value)
             logging.info(f"gathering {category.name} metrics successful.")
 
         logging.info("gathering all metrics successful.")
